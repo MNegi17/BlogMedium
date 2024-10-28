@@ -1,8 +1,5 @@
 {
-  "dependencies": {
-    "zod": "^3.23.8"
-  },
-  "name": "@manannegi/medium-common",
+  "name": "common",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
@@ -12,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-    "typescript": "^5.6.3"
+  "dependencies": {
+    "zod": "^3.23.8"
   }
 }
