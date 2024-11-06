@@ -6,7 +6,6 @@ import { sign } from 'hono/jwt'
 export const userRouter = new Hono<{
 	Bindings: {
 		DATABASE_URL: string,
-		JWT_SECRET: string,
 	}
 }>();
 
@@ -25,7 +24,7 @@ userRouter.post('/signup', async (c) => {
 			}
 		});
 
-    const jwt = await sign({id: user.id}, c.env.JWT_SECRET)
+    const jwt = await sign({id: user.id}, "secret")
     return c.text(jwt);
 	
   } catch(e) {
@@ -54,7 +53,7 @@ userRouter.post('/signin', async (c) => {
 			return c.json({ msg: "Incorrect credentials" });
 		}
 	
-		const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
+		const jwt = await sign({ id: user.id }, "secret");
 		return c.json({ jwt });
 	
 	} catch(e){
